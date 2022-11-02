@@ -28,5 +28,7 @@ const addMovie = {
     },
     body: JSON.stringify(movie)
 }
+//Add movie data to a form, so it displays on website
+var testform = document.createElement("h1")
 
-
+testform.append(addMovie)

@@ -1,6 +1,23 @@
 "use strict"
 // alert ("Test")
-const movieUrl = "https://cool-maddening-kick.glitch.me"
+const movieUrl = "https://cool-maddening-kick.glitch.me/movies"
+
+const movieSubmit = {title:'Test Title', rating: '10'}
+
+const addMovie = {
+    method: 'POST',
+    headers:{
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(movieSubmit),
+};
+fetch(movieUrl, addMovie)
+    .then( response => console.log(response) )
+    .catch( error => console.error(error) );
+
+
+
+
 // fetch ('https://cool-maddening-kick.glitch.me', {
 //     method: 'GET',
 //     headers: {

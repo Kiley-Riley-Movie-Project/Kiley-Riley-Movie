@@ -1,6 +1,6 @@
 "use strict"
 // alert ("Test")
-const movieUrl = "https://cool-maddening-kick.glitch.me"
+/*const movieUrl = "https://cool-maddening-kick.glitch.me"*/
 // fetch ('https://cool-maddening-kick.glitch.me', {
 //     method: 'GET',
 //     headers: {
@@ -9,6 +9,7 @@ const movieUrl = "https://cool-maddening-kick.glitch.me"
 //     })
 // .then(response => response.text())
 // // .then(text => console.log(text))
+/*
 
 fetch('https://cool-maddening-kick.glitch.me')
 .then(response =>
@@ -30,5 +31,23 @@ const addMovie = {
 }
 //Add movie data to a form, so it displays on website
 var testform = document.createElement("h1")
+*/
 
-testform.append(addMovie)
+//Fetch to get data from Glitch API. WOO we did it
+fetch(`https://cool-maddening-kick.glitch.me/movies`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        let html = "";
+        for (const datum of data){
+            html += `
+            <div class="card">
+                <h3>${datum.title}</h3>
+                <p>Rating: ${datum.rating}</p>
+            </div>
+            `
+        }
+        // format data to html
+        // update inner html of #movieDisplay
+        $(`#movieDisplay`).html(html);
+    })

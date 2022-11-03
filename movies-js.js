@@ -30,3 +30,11 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
         // update inner html of #movieDisplay
         $(`#movieDisplay`).html(html);
     })
+/* Trying to make the loading messaged look better
+
+setTimeout(function() {
+    $('#mydiv').fadeOut('fast');
+}, ); // <-- time in milliseconds
+
+let loadingTimeOut = fetch(`https://cool-maddening-kick.glitch.me/server.js`).then(response => response.json())
+.then(response => console.log(response))*/

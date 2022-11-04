@@ -16,15 +16,27 @@ var submitButton = document.querySelector("#movieSubmit")
 
 submitForm.addEventListener('submit', function (e){
     e.preventDefault()
+    let movieTitle = document.querySelector('#title').value
+    let movieRating = document.querySelector('#rating').value
+    let movieGenre = document.querySelector('#genre').value
+    console.log(movieTitle);
+    console.log(movieRating);
+    console.log(movieGenre);
+    let movie = {
+        title: movieTitle,
+        rating: movieRating,
+        genre: movieGenre
+    }
     const payload = new FormData(movieSubmit)
     fetch('https://cool-maddening-kick.glitch.me/movies', {
         method: 'POST',
-        body: payload
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movie)
     })
         .then(res => res.json())
         .then(data => console.log(data))
-
-
 })
 
 

@@ -5,6 +5,10 @@ const movieUrl = "https://cool-maddening-kick.glitch.me/movies"
 const movieSubmit = document.getElementById('submitForm');
 
 
+function editClick(){
+    let promptTitle = prompt("Edit Title Here" + this.title)
+
+}
 
 
 function fetchPost (){fetch(movieUrl, addMovie)
@@ -16,15 +20,15 @@ function fetchPost (){fetch(movieUrl, addMovie)
 fetch(`https://cool-maddening-kick.glitch.me/movies`)
     .then(response => response.json())
     .then(data => {
-        console.log(data)
+        // console.log(data)
         let html = "";
         for (const datum of data){
             html += `
             <div class="card" id="movieDisplay-${datum.id} ">
-                <h3>${datum.title}</h3>
-                <p>Rating: ${datum.rating}</p>
-                <p >testid: ${datum.id}</p>
-                <button type="button" id="edit-${datum.id}" onclick="alert('it worked')">Edit</button>
+                <h3 class="displayTitle">${datum.title}</h3>
+                <p class="displayRating">Rating: ${datum.rating}</p>
+                <p hidden>testid: ${datum.id}</p>
+                <button type="button" id="edit-${datum.id}" data-id="${datum.id}" onclick="editMovie()" class="editButton">Edit</button>
                 <button type="button" class="deletebutton" data-id="${datum.id}" id="delete-${datum.id}"> Delete </button>
             </div>
             
@@ -35,7 +39,11 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
         $(`#movieDisplay`).html(html);
         //calling delete button function
         deletingMovies();
+        editMovie();
     })
+
+
+
 //We put delete function into the get call, so that runs when data loads. We're also able to get datum.id's from this
 
 var submitButton = document.querySelector("#movieSubmit")
@@ -45,7 +53,7 @@ submitForm.addEventListener('submit', function (e){
     e.preventDefault()
 
     //Gets values from input fields
-    let movieTitle = document.querySelector('#title').value
+    let movieTitle = document.querySelector('#title').valuegit 
     let movieRating = document.querySelector('#rating').value
     let movieGenre = document.querySelector('#genre').value
 
@@ -101,8 +109,33 @@ function deletingMovies() {
             )
     })
 }
+// Edit form ideas: some kind of form appear with 2 text inputs and a submit button
+function editMovie(){
+    editButton.addEventListener("click", function (e){
+       let editMovie = prompt("Title to Edit");
 
+    // $('.editbutton').on('click', function (e){
+        e.preventDefault()
+        // let test = {
+        //     title: this.displayTitle,
+        //     rating: this.displayRating
+        //
+        // }
+        // console.log(test);
+        // console.log(this.dataset.id)
 
+        fetch('https://cool-maddening-kick.glitch.me/movies/' + this.dataset.id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res => res.json())
+            .then(data => console.log(data)
+            )
+    })
+
+}
 
 
 

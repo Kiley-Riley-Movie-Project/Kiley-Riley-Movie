@@ -4,6 +4,7 @@ const movieUrl = "https://cool-maddening-kick.glitch.me/movies"
 
 const movieSubmit = document.getElementById('submitForm');
 
+
 function editClick(){
     let promptTitle = prompt("Edit Title Here" + this.title)
 
@@ -27,7 +28,7 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
                 <h3 class="displayTitle">${datum.title}</h3>
                 <p class="displayRating">Rating: ${datum.rating}</p>
                 <p hidden>testid: ${datum.id}</p>
-                <button type="button" id="edit-${datum.id}" onclick= "" class="editButton">Edit</button>
+                <button type="button" id="edit-${datum.id}" data-id="${datum.id}" onclick="editMovie()" class="editButton">Edit</button>
                 <button type="button" class="deletebutton" data-id="${datum.id}" id="delete-${datum.id}"> Delete </button>
             </div>
             
@@ -110,15 +111,19 @@ function deletingMovies() {
 }
 // Edit form ideas: some kind of form appear with 2 text inputs and a submit button
 function editMovie(){
-    $('.editbutton').on('click', function (e){
-        e.preventDefault()
-        let test = {
-            title: this.displayTitle,
-            rating: this.displayRating
+    editButton.addEventListener("click", function (e){
+       let editMovie = prompt("Title to Edit");
 
-        }
-        console.log(test);
-        console.log(this.dataset.id)
+    // $('.editbutton').on('click', function (e){
+        e.preventDefault()
+        // let test = {
+        //     title: this.displayTitle,
+        //     rating: this.displayRating
+        //
+        // }
+        // console.log(test);
+        // console.log(this.dataset.id)
+
         fetch('https://cool-maddening-kick.glitch.me/movies/' + this.dataset.id, {
             method: 'PUT',
             headers: {
@@ -129,6 +134,7 @@ function editMovie(){
             .then(data => console.log(data)
             )
     })
+
 }
 
 

@@ -27,9 +27,9 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
             <div class="card" id="movieDisplay-${datum.id} ">
                 <h3 class="displayTitle">${datum.title}</h3>
                 <p class="displayRating">Rating: ${datum.rating}</p>
-                <p hidden>testid: ${datum.id}</p>
-                <button type="button" id="edit-${datum.id}" data-id="${datum.id}" onclick="editMovie()" class="editButton">Edit</button>
-                <button type="button" class="deletebutton" data-id="${datum.id}" id="delete-${datum.id}"> Delete </button>
+                <p hidden>id: ${datum.id}</p>
+                <button type="button" class="editButton" id="edit-${datum.id}" data-id="${datum.id}"  >Edit</button>
+                <button type="button" class="deletebutton" data-id="${datum.id}" id="delete-${datum.id}" > Delete </button>
             </div>
             
             `
@@ -38,8 +38,9 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
         // update inner html of #movieDisplay
         $(`#movieDisplay`).html(html);
         //calling delete button function
-        deletingMovies();
         editMovie();
+        deletingMovies();
+
     })
 
 
@@ -111,24 +112,27 @@ function deletingMovies() {
 }
 // Edit form ideas: some kind of form appear with 2 text inputs and a submit button
 function editMovie(){
-    editButton.addEventListener("click", function (e){
+    /*editID.addEventListener("click", function (e){
        let editMovie = prompt("Title to Edit");
-
-    // $('.editbutton').on('click', function (e){
+*/
+     $('.editButton').on('click', function (e){
         e.preventDefault()
-        // let test = {
-        //     title: this.displayTitle,
-        //     rating: this.displayRating
-        //
-        // }
-        // console.log(test);
-        // console.log(this.dataset.id)
+       /*  let test = {
+             title: this.displayTitle.value,
+             rating: this.displayRating.value
 
+         }
+         console.log(test);
+         console.log(this.dataset.id)
+
+*/
+         prompt("test")
         fetch('https://cool-maddening-kick.glitch.me/movies/' + this.dataset.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
+            body: JSONstringify,
         })
             .then(res => res.json())
             .then(data => console.log(data)

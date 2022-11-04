@@ -2,19 +2,30 @@
 // alert ("Test")
 const movieUrl = "https://cool-maddening-kick.glitch.me/movies"
 
-const movieSubmit = {title:'Test Title', rating: '10'}
+const movieSubmit = document.getElementById('submitForm');
 
-const addMovie = {
-    method: 'POST',
-    headers:{
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(movieSubmit),
-};
-fetch(movieUrl, addMovie)
+
+
+
+function fetchPost (){fetch(movieUrl, addMovie)
     .then( response => console.log(response) )
-    .catch( error => console.error(error) );
+    .catch( error => console.error(error) )}
 
+var submitButton = document.querySelector("#movieSubmit")
+
+
+submitForm.addEventListener('submit', function (e){
+    e.preventDefault()
+    const payload = new FormData(movieSubmit)
+    fetch('https://cool-maddening-kick.glitch.me/movies', {
+        method: 'POST',
+        body: payload
+    })
+        .then(res => res.json())
+        .then(data => console.log(data))
+
+
+})
 
 
 

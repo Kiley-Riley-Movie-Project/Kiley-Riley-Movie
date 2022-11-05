@@ -115,24 +115,29 @@ function editMovie(){
     /*editID.addEventListener("click", function (e){
        let editMovie = prompt("Title to Edit");
 */
+
+
+
      $('.editButton').on('click', function (e){
         e.preventDefault()
-       /*  let test = {
-             title: this.displayTitle.value,
-             rating: this.displayRating.value
+         var promptTitle = prompt("Enter New Title")
+         var promptRating = prompt("Enter Rating")
+
+         let movieUpdate = {
+             title: promptTitle,
+             rating: promptRating,
 
          }
-         console.log(test);
+         console.log(movieUpdate);
          console.log(this.dataset.id)
 
-*/
-         prompt("test")
+
         fetch('https://cool-maddening-kick.glitch.me/movies/' + this.dataset.id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSONstringify,
+            body: JSON.stringify(movieUpdate),
         })
             .then(res => res.json())
             .then(data => console.log(data)

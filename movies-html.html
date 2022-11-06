@@ -2,27 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <title>Movie Project</title>
+<!--Added a CSS style sheet    -->
+    <link rel="stylesheet"  href="style.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Orbitron&display=swap" rel="stylesheet">
 <!--    need to figure out how to add a loading screen message
  Need a way to list all of the movies-->
 </head>
-<body>
+
+<body class="body">
+<br>
 <!--WE need to add A form to add movies to the site
  Also need to add delete (delete request) & edit button(put method) (which means some kind of event listener) So we the functionality of the button to send a post to the json server. -->
-<form class="column justify-content-end container" id="submitForm">
-    <input type="text" id="title" class="row" placeholder="Movie Title">
+<H1 class="header text-center">MISSING A MOVIE ADD IT HERE</H1>
+<br>
+<form class="column container text-center" id="submitForm">
+
+    <input type="text" id="title" class="text-center" placeholder="Movie Title">
     <br>
-    <input type="text" id="rating" class="row" placeholder="Rating">
+    <input type="text" id="rating" class="text-center" placeholder="Rating">
     <br>
-    <input type="text" id="genre" class="row" placeholder="Genre">
+    <input type="text" id="genre" class="text-center" placeholder="Genre">
     <br>
     <input type="submit" id="movieSubmit">
 </form>
+<br>
 
 <!-- Div for displaying movie. String is loading before data, could use for "Loading message" -->
-<h1 id="movieDisplay"> Testing message</h1>
+<h1 id="movieDisplay" class="loading text-center">Loading....</h1>
 
 <!-- Below is trying to make loading message cooler -->
 <!--<div id="mydiv"> THIS IS A TEST MOTHER TRUCKER</div>-->

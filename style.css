@@ -1,0 +1,48 @@
+
+
+/*Added this staticy image to the tile of the movie*/
+.header{
+    background-image: url("https://media.giphy.com/media/YRcXl6VfNhCorklI0R/giphy.gif");
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    width: 100%;
+
+}
+/*can't get the image to display right but whatever*/
+form{
+   background-image: url("https://i.imgur.com/yaGdjwL.jpg");
+}
+
+#title {
+    width: 500px;
+    border-style: solid;
+
+}
+
+#genre {
+    width: 500px;
+    border-style: solid;
+
+}
+
+#rating {
+    width: 500px;
+    border-style: solid;
+
+}
+/*suppose to be a corgi kicking but now it just looks like some sweet 90s effects*/
+.loading {
+    background-image: url("https://media.giphy.com/media/v6eyaePwdptVWDWi9q/giphy.gif");
+}
+/*changes the font and adds a border*/
+#movieDisplay {
+    font-family: 'Orbitron', sans-serif;
+    border-style: solid;
+    border-spacing: 1em;
+    border-color: indianred;
+
+}
+
+.main {
+    background-color: indianred;
+}

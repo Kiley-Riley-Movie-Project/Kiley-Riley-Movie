@@ -10,6 +10,9 @@ function editClick(){
 
 }
 
+function changePadding() {
+
+}
 
 function fetchPost (){fetch(movieUrl, addMovie)
     .then( response => console.log(response) )
@@ -26,7 +29,7 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
             html += `
 <!--added container and text center to get them to the middle of the screen-->
               
-            <div  class="main card container text-center"  id="movieDisplay-${datum.id} ">
+            <div  class="main card container text-center text-white bg-dark " style="margin-bottom: 30px ; padding: 50px"  id="movieDisplay-${datum.id} ">
             <br>
                 <h1 class="displayTitle">${datum.title}</h1>
                 <br>
@@ -38,7 +41,6 @@ fetch(`https://cool-maddening-kick.glitch.me/movies`)
                 <br>
                 <button type="button" class="deletebutton" data-id="${datum.id}" id="delete-${datum.id}" > Delete </button>
             </div>
-            
             `
         }
         // format data to html

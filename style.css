@@ -33,6 +33,7 @@ form{
 /*suppose to be a corgi kicking but now it just looks like some sweet 90s effects*/
 .loading {
     background-image: url("https://media.giphy.com/media/v6eyaePwdptVWDWi9q/giphy.gif");
+        height: 100%;
 }
 /*changes the font and adds a border*/
 #movieDisplay {
@@ -44,5 +45,5 @@ form{
 }
 
 .main {
-    background-color: indianred;
+
 }
